@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Wallet Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar img.logo-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .navbar img.profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff6b81;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .navbar .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar .user-info span {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .navbar .user-info a {
+            color: #ff6b81;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #fff;
+            padding: 30px 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffe5ea;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .welcome-box, .balance-box, .transactions-box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-box h3 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-box p, .transactions-box p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .balance-box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .balance-box .balance {
+            font-size: 32px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ff6b81;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .btn-action:hover {
+            background-color: #e25a6f;
+        }
+
+        .transactions-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transactions-box li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{% static 'images/wallet-logo.png' %}" alt="Wallet Logo" class="logo-img">
+            <h2>Digital Wallet</h2>
+        </div>
+        <div class="user-info">
+            <span>Welcome, {{ user.name }}</span>
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'settings' %}">
+                {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile" class="profile-img">
+                {% else %}
+                    <img src="{% static 'images/default-user.png' %}" alt="No Profile" class="profile-img">
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    
+
+<div class="container">
+    <div class="sidebar">
+        <h3>Menu</h3>
+        <a href="{% url 'wallet_main' %}">🏠 Dashboard</a>
+        <a href="{% url 'add_funds' %}">➕ Add Funds</a>
+        <a href="{% url 'transfer_money' %}">💸 Transfer Money</a>
+        <a href="{% url 'merchant_payment' %}">🛍️ Pay Merchant</a>
+        <a href="{% url 'view_transactions' %}">📄 Transaction History</a>
+        <a href="{% url 'settings' %}">⚙️ Settings</a>
+    </div>
+
+    <div class="main-content">
+        <div class="welcome-box">
+            <h3>Hello {{ user.name }} 👋</h3>
+            <p>This is your secure digital wallet dashboard. Use the menu to manage your funds.</p>
+        </div>
+
+        <div class="balance-box">
+            <h3>Your Wallet Balance</h3>
+            <p class="balance">${{ user.balance|floatformat:2 }}</p>
+
+            <div class="actions">
+                <a href="{% url 'add_funds' %}" class="btn-action">➕ Add Funds</a>
+                <a href="{% url 'transfer_money' %}" class="btn-action">💸 Transfer</a>
+                <a href="{% url 'merchant_payment' %}" class="btn-action">🛍️ Pay Merchant</a>
+            </div>
+        </div>
+
+        <div class="transactions-box">
+            <h3>Recent Transactions</h3>
+            <ul>
+                {% for txn in transactions|slice:":3" %}
+                    <li>
+                        {{ txn.timestamp|date:"M d, Y H:i" }} — 
+                        <strong>{{ txn.transaction_type }}</strong> to 
+                        {{ txn.party }}: 
+                        <span style="color: {% if txn.transaction_type == 'ADD' %}green{% else %}red{% endif %};">
+                            ${{ txn.amount|floatformat:2 }}
+                        </span>
+                    </li>
+                {% empty %}
+                    <li>No recent transactions found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

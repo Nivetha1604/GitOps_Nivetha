@@ -1,0 +1,84 @@
+{% load static %}
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Digital Wallet</title>
+    <style>
+        body {
+            background: url('{% static "login-bg.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.93);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color:rgb(174, 66, 158);
+            font-size: 20px;
+        }
+        label {
+            font-weight: 500;
+            font-size: 13px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 13px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color:rgb(93, 175, 226);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3498db;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 13px;
+        }
+        .register-link a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to Digital Wallet</h2>
+        {% if message %}<p style="color: red; text-align:center; font-size: 13px;">{{ message }}</p>{% endif %}
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="register-link">
+            Not registered? <a href="{% url 'show_register_form' %}">Create an account</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

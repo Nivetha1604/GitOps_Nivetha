@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Digital Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ff6b81, #ffc3a0);
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: white;
+            color: #ff6b81;
+        }
+
+        .section {
+            background-color: white;
+            padding: 60px 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .section h2 {
+            color: #ff6b81;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background-color: #f2f2f2;
+        }
+
+        .footer a {
+            color: #ff6b81;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Digital Wallet</h1>
+        <p>Your secure and smart way to manage money online.</p>
+        <div class="nav-links">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'show_register_form' %}">Register</a>
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <h2>About</h2>
+        <p>
+            The Digital Wallet application is a user-friendly platform designed to simplify digital money management.
+            Users can easily add funds, transfer money, pay merchants, and view their full transaction history.
+            With enhanced security and intuitive design, it’s perfect for everyday use.
+        </p>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact</h2>
+        <p>
+            Got questions or feedback? We'd love to hear from you!
+            You can reach our support team at: <strong>support@digitalwallet.com</strong>
+        </p>
+        <p>
+            Project developed for the <strong>Application Programming</strong> course at Humber College.
+        </p>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Digital Wallet. All rights reserved. | Made with ❤️ at Humber College
+    </div>
+
+</body>
+</html>
+
+
+
