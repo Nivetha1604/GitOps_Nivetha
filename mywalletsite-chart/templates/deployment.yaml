@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywalletsite
+  labels:
+    app: mywalletsite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywalletsite
+  template:
+    metadata:
+      labels:
+        app: mywalletsite
+    spec:
+      containers:
+      - name: mywalletsite
+        image: nivetha16041996/nivetha_gitops_repo:latest
+        ports:
+        - containerPort: 8000

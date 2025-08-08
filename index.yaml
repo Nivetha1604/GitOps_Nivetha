@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  mywalletsite-chart:
+  - apiVersion: v2
+    appVersion: 2ff3df0ece2559e578806df966e2c055b059946e
+    created: "2025-08-08T02:10:26.451766492Z"
+    description: A Helm chart for Kubernetes
+    digest: 03b1f6e8313011e1fe2439308a27adf8133e94c410494a9f85cbf48187051aba
+    name: mywalletsite-chart
+    type: application
+    urls:
+    - https://Nivetha1604.github.io/GitOps_Nivetha/mywalletsite-chart-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-08-08T02:10:26.451434389Z"
+    description: A Helm chart for Kubernetes
+    digest: 34c6a2462e889fa6374e9fcae71c6e23546a459080218380a3a843f264aa39fa
+    name: mywalletsite-chart
+    type: application
+    urls:
+    - https://Nivetha1604.github.io/GitOps_Nivetha/mywalletsite-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-08-08T02:10:26.450052899Z"
