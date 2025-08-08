@@ -15,10 +15,9 @@ spec:
         app: mywalletsite
     spec:
       containers:
-      - name: mywalletsite
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-        ports:
-
-        - containerPort: 8080
-        - containerPort: 8000
+        - name: mywalletsite
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - containerPort: 8080
+            - containerPort: 8000
 
