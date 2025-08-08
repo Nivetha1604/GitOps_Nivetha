@@ -8,5 +8,10 @@ spec:
   ports:
     - protocol: TCP
       port: 80
+ HEAD
       targetPort: 8080
   type: NodePort
+
+      targetPort: 8000
+  type: ClusterIP
+ c0c646c (Add EC2 IP to ALLOWED_HOSTS)
