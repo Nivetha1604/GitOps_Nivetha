@@ -28,7 +28,6 @@ DEBUG = True
 HEAD
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['3.82.225.211', 'localhost', '127.0.0.1']
-091f6ae (Add EC2 IP to ALLOWED_HOSTS)
 
 
 # Application definition
