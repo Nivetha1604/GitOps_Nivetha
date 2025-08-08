@@ -18,8 +18,8 @@ spec:
       - name: mywalletsite
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         ports:
- HEAD
+
         - containerPort: 8080
 
         - containerPort: 8000
- c0c646c (Add EC2 IP to ALLOWED_HOSTS)
+
