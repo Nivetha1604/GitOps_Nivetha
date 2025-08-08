@@ -11,3 +11,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 CMD ["gunicorn", "mywalletsite.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "mywalletsite.wsgi:application"]
