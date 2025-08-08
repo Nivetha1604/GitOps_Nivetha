@@ -13,5 +13,3 @@ COPY . .
 CMD ["gunicorn", "mywalletsite.wsgi:application", "--bind", "0.0.0.0:8000"]
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "mywalletsite.wsgi:application"]
-
- c0c646c (Add EC2 IP to ALLOWED_HOSTS)
